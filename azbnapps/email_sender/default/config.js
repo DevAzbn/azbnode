@@ -22,4 +22,8 @@ module.exports = {
 	
 	iteration_count : 5,
 	
+	charset : 'utf8',
+	
+	html_path : 'D:/project/azbnode/azbnapps/email_sender/default/html/',
+	
 };

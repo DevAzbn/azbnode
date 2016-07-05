@@ -35,28 +35,54 @@ function _(azbn) {
 				azbn.mdl('codestream')
 					.add(function(next){
 						
-						var acc = azbn.mdl('cfg').account[item.account]
+						var html_file = azbn.mdl('cfg').html_path + item.msg + '.html';
 						
-						var transporter = azbn.mdl('nodemailer').createTransport(acc.transport);
-						
-						var mailOptions = {
-							from: item.from + ' <' + acc.login + '>', // sender address
-							to: item.email, // list of receivers
-							subject: item.subject + ' #' + item.id, // Subject line
-							text: item.text, // plaintext body
-							html: item.html, // html body
-						};
-						
-						// send mail with defined transport object
-						transporter.sendMail(mailOptions, function(error, info){
+						azbn.mdl('fs').readFile(html_file, azbn.mdl('cfg').charset, function(err, text) {
 							
-							if(error){
+							if(err) {
 								
-								azbn.event('email_error', azbn);
+								azbn.echo('Error: ' + err, log_name);
 								
 							} else {
 								
-								azbn.echo('Message sent: ' + info.response, log_name);
+								if(text && text != '') {
+									
+									var _text = text.replace(new RegExp('({{html}})', 'ig'), item.html);
+									_text = _text.replace(new RegExp('({{recipient}})', 'ig'), item.email);
+									_text = _text.replace(new RegExp('({{item_id}})', 'ig'), item.id);
+									
+									if(_text != '') {
+										
+										var acc = azbn.mdl('cfg').account[item.account]
+										
+										var transporter = azbn.mdl('nodemailer').createTransport(acc.transport);
+										
+										var mailOptions = {
+											from: item.from + ' <' + acc.login + '>', // sender address
+											to: item.email, // list of receivers
+											subject: item.subject + ' #' + item.id, // Subject line
+											//text: item.text, // plaintext body
+											html: _text, // html body
+										};
+										
+										// send mail with defined transport object
+										transporter.sendMail(mailOptions, function(error, info){
+											
+											if(error){
+												
+												azbn.echo('Error: ' + error, log_name);
+												
+											} else {
+												
+												azbn.echo('Message sent: ' + info.response, log_name);
+												
+											}
+											
+										});
+										
+									}
+									
+								}
 								
 							}
 							
