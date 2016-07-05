@@ -1,0 +1,151 @@
+.arrow-slider {
+	position:relative;
+	background-position:center center;
+	background-size:cover;
+	
+	.img-block {
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+		
+		& > .item {
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+			height:100%;
+			
+			display:none;
+			background-position:center center;
+			background-size:cover;
+			
+			&.active {
+				display:block;
+			}
+		}
+		
+	}
+	
+	.text-content {
+		
+		
+		
+	}
+	
+	.title-block {
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+	}
+	
+	.arrow-block {
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+		
+		.point-line {
+			position:absolute;
+			left:0;
+			bottom:5%;
+			width:100%;
+			margin:0 auto;
+			text-align:center;
+			
+			.item {
+				display:inline-block;
+				text-align:center;
+				width:4em;
+				
+				&.active {
+					& > .point {
+						opacity:1;
+					}
+				}
+				
+				& > .point {
+					display:inline-block;
+					width:1em;
+					height:1em;
+					#site.bg(@c-hex-w);
+					border-radius:50%;
+					opacity:0.5;
+				}
+			}
+		}
+		
+		.btn-arrow {
+			position:absolute;
+			top:0;
+			height:100%;
+			width:44px;
+			
+			&.left {
+				left:5%;
+				
+				& > .picture {
+					background-image: url('@{url-path-img}/fecss/.arrow-slider/left.png');
+					right:0%;
+				}
+			}
+			&.right {
+				right:5%;
+				
+				& > .picture {
+					background-image: url('@{url-path-img}/fecss/.arrow-slider/right.png');
+					left:0%;
+				}
+			}
+			
+			& > .picture {
+				position:absolute;
+				height:100%;
+				width:100%;
+				top:0;
+				
+				background-position:center center;
+				background-repeat:no-repeat;
+				-ms-transition:-ms-transform 1s ease;
+				-moz-transition:-moz-transform 1s ease;
+				-o-transition:-o-transform 1s ease;
+				-webkit-transition:-webkit-transform 1s ease;
+				transition:transform 1s ease;
+			}
+		}
+	}
+	
+	
+	&.mod {
+		@import ".mod.less";
+	}
+	
+	@media @media-size-xs {
+		@import "xs.less";
+	}
+	@media @media-size-sm {
+		@import "sm.less";
+	}
+	@media @media-size-md {
+		@import "md.less";
+	}
+	@media @media-size-lg {
+		@import "lg.less";
+	}
+	@media @media-size-portrait {
+		@import "portrait.less";
+	}
+	@media @media-size-landscape {
+		@import "landscape.less";
+	}
+	@media @media-size-retina {
+		@import "retina.less";
+	}
+	@media @media-size-print {
+		@import "print.less";
+	}
+}

@@ -1,0 +1,45 @@
+.can-close {
+	position:relative;
+	
+	.close-btn {
+		position:absolute;
+		right:1em;
+		top:1em;
+		width:1em;
+		height:1em;
+		background-size:cover;
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-image:url('@{url-path-img}/fecss/.can-close/close-btn.png');
+	}
+	
+	
+	&.mod {
+		@import ".mod.less";
+	}
+	
+	@media @media-size-xs {
+		@import "xs.less";
+	}
+	@media @media-size-sm {
+		@import "sm.less";
+	}
+	@media @media-size-md {
+		@import "md.less";
+	}
+	@media @media-size-lg {
+		@import "lg.less";
+	}
+	@media @media-size-portrait {
+		@import "portrait.less";
+	}
+	@media @media-size-landscape {
+		@import "landscape.less";
+	}
+	@media @media-size-retina {
+		@import "retina.less";
+	}
+	@media @media-size-print {
+		@import "print.less";
+	}
+}

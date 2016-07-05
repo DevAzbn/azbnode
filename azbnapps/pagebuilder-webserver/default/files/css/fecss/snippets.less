@@ -1,0 +1,569 @@
+	html body &.full-height, html body & .full-height {
+		height:100%;
+	}
+
+	/* ------- Картинки ------- */
+	.image {
+		
+		&.box {
+			&.contain {
+				background-position:50% 50%;
+				background-repeat:no-repeat;
+				-ms-background-size:contain;
+				-moz-background-size:contain;
+				-o-background-size:contain;
+				-webkit-background-size:contain;
+				background-size:contain;
+			}
+			&.cover {
+				background-position:50% 50%;
+				background-repeat:no-repeat;
+				-ms-background-size:cover;
+				-moz-background-size:cover;
+				-o-background-size:cover;
+				-webkit-background-size:cover;
+				background-size:cover;
+			}
+		}
+		
+		&.resp {
+			display:block;
+			max-width:100%;
+			height:auto;
+		}
+		&.circle {
+			border-radius:50%;
+		}
+		
+		&.flip {
+			-ms-transform: scaleX(-1);
+			-moz-transform: scaleX(-1);
+			-o-transform: scaleX(-1);
+			-webkit-transform: scaleX(-1);
+			transform: scaleX(-1);
+			filter: FlipH;
+			-ms-filter: "FlipH";
+		}
+		
+	}
+	
+	/* ------- /Картинки ------- */
+	
+	
+	/* ------- Текстовые классы ------- */
+	.align-left {
+		text-align:left;
+	}
+	.align-right {
+		text-align:right;
+	}
+	.align-center {
+		text-align:center;
+	}
+	.align-justify {
+		text-align:justify;
+	}
+	.nowrap {
+		white-space:nowrap;
+	}
+	.lowercase {
+		text-transform:lowercase;
+	}
+	.uppercase {
+		text-transform:uppercase;
+	}
+	.capitalize {
+		text-transform:capitalize;
+	}
+	/* ------- /Текстовые классы ------- */
+	
+	
+	/* ------- Позиции элементов ------- */
+	
+	.pos {
+		&.rel {
+			position:relative
+		}
+		&.abs {
+			position:absolute;
+		}
+		&.fix {
+			position:fixed;
+		}
+	}
+	
+	/* ------- /Позиции элементов ------- */
+	
+	
+	/* ------- Стандартные z-index ------- */
+	
+	.zi {
+		&.zi-minus {
+			z-index:-1;
+		}
+		&.zi-null {
+			z-index:0;
+		}
+		&.zi-base {
+			z-index:1;
+		}
+		&.zi-top {
+			z-index:10;
+		}
+		&.zi-modal {
+			z-index:100;
+		}
+	}
+	
+	/* ------- /Стандартные z-index ------- */
+	
+	
+	/* ------- Отображение блоков ------- */
+	.margin-center {
+		margin-right:auto;
+		margin-left:auto;
+	}
+	.overflow-hidden {
+		overflow:hidden;
+	}
+	.hidden {
+		visibility:hidden !important;
+		/*display: none !important;*/
+	}
+	/* ------- /Отображение блоков ------- */
+	
+	/* ------- Выпадающая кнопка ------- */
+	
+	.hoverdown {
+		
+		& > a {
+		
+		}
+		
+		& > div.viewonhover {
+			display:none;
+		}
+		
+		&:hover, &.hovered {
+			position:relative;
+			
+			& > div.viewonhover {
+				display:block;
+				position:absolute;
+				left:0px;
+				top:100%;
+				
+				& > ul {
+					display:block;
+					list-style-type:none;
+					
+					& > li {
+						list-style-type:none;
+						
+						& > a {
+							white-space:nowrap;
+						}
+						
+						& > div.viewonhover {
+							display:none;
+						}
+						
+						&:hover, &.hovered {
+							position:relative;
+							
+							& > div.viewonhover {
+								display:block;
+								position:absolute;
+								left:100%;
+								top:0;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	/* ------- /Выпадающая кнопка ------- */
+	
+	/* ------- Увеличение при наведении ------- */
+	.hover-scale {
+		-ms-transition:-ms-transform 1s ease;
+		-moz-transition:-moz-transform 1s ease;
+		-o-transition:-o-transform 1s ease;
+		-webkit-transition:-webkit-transform 1s ease;
+		transition:transform 1s ease;
+		
+		&:hover {
+			display:inline-block;
+			-ms-transform:scale(1.2);
+			-moz-transform:scale(1.2);
+			-o-transform:scale(1.2);
+			-webkit-transform:scale(1.2);
+			transform:scale(1.2);
+		}
+	}
+	/* ------- /Увеличение при наведении ------- */
+	
+	
+	
+	/* ------- Небольшие стрелочки ------- */
+	.arrow {
+		
+		@color:#000000;
+		@size:4px;
+		
+		content:'';
+		display:inline-block;
+		vertical-align:middle;
+		width:@size;
+		height:@size;
+		/*background-color: #a0a0a0;*/
+		
+		&.top {
+			border-bottom: @size solid @color;
+			border-right: @size solid transparent;
+			border-left: @size solid transparent;
+		}
+		&.right {
+			border-left: @size solid @color;
+			border-top: @size solid transparent;
+			border-bottom: @size solid transparent;
+		}
+		&.bottom {
+			border-top: @size solid @color;
+			border-right: @size solid transparent;
+			border-left: @size solid transparent;
+		}
+		&.left {
+			border-right: @size solid @color;
+			border-top: @size solid transparent;
+			border-bottom: @size solid transparent;
+		}
+	}
+	/* ------- /Небольшие стрелочки ------- */
+	
+	/* ------- Полноэкранные элементы ------- */
+	.full-screen {
+		@dark-el-color-bg:rgba(0,0,0,0.75);
+		@dark-el-color-font:#ffffff;
+		
+		@semi-dark-el-color-bg:rgba(0,0,0,0.4);
+		@semi-dark-el-color-font:#ffffff;
+		
+		position:fixed;
+		top:0px;
+		left:0px;
+		height: 100%;
+		width: 100%;
+		vertical-align: middle;
+		text-align: center;
+		display:none;
+		
+		&.active {
+			z-index:100;
+			display:block;
+		}
+		
+		&.dark {
+			#site > .bg(@dark-el-color-bg);
+			#site > .color(@dark-el-color-font);
+		}
+		
+		&.semi-dark {
+			#site > .bg(@dark-el-color-bg);
+			#site > .color(@dark-el-color-font);
+		}
+		
+		&.page-loader {
+			
+			-moz-transition: all 0.7s ease;
+			-ms-transition: all 0.7s ease;
+			-webkit-transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			
+			opacity:0;
+			height: 0%;
+			
+			&.active {
+				opacity:1;
+				height: 100%;
+			}
+			
+			.process-container {
+				display:block;
+				position:relative;
+				width:300px;
+				height:3em;
+				line-height:3em;
+				margin:2em auto;
+				white-space:nowrap;
+				#site > .uppercase(lowercase);
+				#site > .bold();
+				#site > .size(1em);
+				#site > .bg(transparent);
+				#site > .color(@dark-el-color-font);
+				
+				.process-level {
+					position:absolute;
+					left:50%;
+					top:0;
+					display:block;
+					width: 0%;
+					height:100%;
+					margin:0 auto;
+					z-index:0;
+					overflow-x:hidden;
+					text-align:center;
+					#site > .underline(none);
+					
+					#site > .bg(@dark-el-color-font);
+					
+					-ms-animation: processloading 1s infinite;
+					-moz-animation: processloading 1s infinite;
+					-webkit-animation: processloading 1s infinite;
+					-o-animation: processloading 1s infinite;
+					animation: processloading 1s infinite;
+				}
+				
+			}
+			
+			.close-loader {
+				display:block;
+				margin:2em auto;
+				width:30em;
+				height:3em;
+				line-height:3em;
+				#site > .bold();
+				#site > .size(1em);
+				#site > .underline(none);
+				#site > .uppercase();
+				#site > .bg(@dark-el-color-font * 0.6);
+				#site > .color(@dark-el-color-bg);
+				
+				-moz-transition: all 0.4s ease;
+				-ms-transition: all 0.4s ease;
+				-webkit-transition: all 0.4s ease;
+				-o-transition: all 0.4s ease;
+				transition: all 0.4s ease;
+				
+				&:hover {
+					#site > .bg(@dark-el-color-font);
+				}
+			}
+		}
+		
+		& > .at-center {
+			display:table;
+			text-align:center;
+			vertical-align:middle;
+			height: inherit;
+			width: inherit;
+			
+			& > .middle {
+				display:table-cell;
+				height: inherit;
+				width: inherit;
+				vertical-align:middle;
+				text-align:center;
+			}
+		}
+	}
+	/* ------- /Полноэкранные элементы ------- */
+	
+	&.text, .text {
+		&.blur {
+			color: transparent;
+			text-shadow: 0 0 5px rgba(0,0,0,0.5);
+		}
+		
+		&.shadow {
+			text-shadow: 1px 1px 1px rgba(0,0,0,1);
+		}
+	}
+	
+	&.filter, .filter {
+		
+		&.blur {
+			-ms-filter: blur(8px);
+			-moz-filter: blur(8px);
+			-o-filter: blur(8px);
+			-webkit-filter: blur(8px);
+			filter: blur(8px);
+			filter: url('@{url-path-css}/fecss/svg-filters.svg#blur');
+		}
+		
+		&.grayscale {
+			-ms-filter: grayscale(100%); 
+			-moz-filter: grayscale(100%); 
+			-o-filter: grayscale(100%); 
+			-webkit-filter: grayscale(100%); 
+			filter: grayscale(100%); 
+			filter: url('@{url-path-css}/fecss/svg-filters.svg#grayscale');
+		}
+		
+		&.not-filter {
+			-ms-filter: initial;
+			-moz-filter: initial;
+			-o-filter: initial;
+			-webkit-filter: initial;
+			filter: initial;
+		}
+	}
+	
+	.go-to-top {
+		position:fixed;
+		opacity:0;
+		z-index:-1;
+		bottom:120%;
+		right:10%;
+		content:'';
+		display:inline-block;
+		width:1px;
+		height:1px;
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-image:url('@{url-path-img}/fecss/go-to-top.png');
+		text-decoration:none;
+		
+		-ms-transition:all 0.999s ease;
+		-moz-transition:all 0.999s ease;
+		-o-transition:all 0.999s ease;
+		-webkit-transition:all 0.999s ease;
+		transition:all 0.999s ease;
+		
+		&.active {
+			width:65px;
+			height:65px;
+			bottom:10%;
+			opacity:1;
+			z-index:15;
+			
+			&:hover {
+				-ms-transform:scale(1.3);
+				-moz-transform:scale(1.3);
+				-o-transform:scale(1.3);
+				-webkit-transform:scale(1.3);
+				transform:scale(1.3);
+			}
+		}
+	}
+	
+	
+	.item-list {
+		.item {
+		
+		}
+	}
+	
+	
+	.h-line {
+		@c-hex-default-h-line-bg: #999999;
+		
+		border:0px none;
+		height:1px;
+		clear:both;
+		margin:1em 0;
+		#site.color(@c-hex-default-h-line-bg);
+		#site.bg(@c-hex-default-h-line-bg);
+	}
+	
+	
+	&.top-shadow:before {
+		content: "";
+		position: fixed;
+		top: -10px;
+		left: 0;
+		width: 100%;
+		height: 10px;
+		-ms-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+		-moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+		-o-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+		-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+		box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+		z-index: 100;
+	}
+	
+	
+	@media @media-size-xs {
+		& {
+			
+			.not-xs {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-sm {
+		& {
+			
+			.not-sm {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-md {
+		& {
+			
+			.not-md {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-lg {
+		& {
+			
+			.not-lg {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-portrait {
+		& {
+			
+			.not-portrait {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-landscape {
+		& {
+			
+			.not-landscape {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-retina {
+		& {
+			
+			.not-retina {
+				display: none !important;
+			}
+			
+		}
+	}
+	
+	@media @media-size-print {
+		& {
+			
+			.not-print {
+				display: none !important;
+			}
+			
+		}
+	}
+	

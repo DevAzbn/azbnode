@@ -1,0 +1,85 @@
+.btn {
+	#site.color(@c-hex-b);
+	#site.bg(@c-hex-w);
+	#site.underline(none);
+	outline:1px @c-hex-b solid;
+	padding:0.5em;
+	-ms-transition:all @trans-speed ease;
+	-moz-transition:all @trans-speed ease;
+	-o-transition:all @trans-speed ease;
+	-webkit-transition:all @trans-speed ease;
+	transition:all @trans-speed ease;
+	
+	&:hover {
+		#site.color(@c-hex-w);
+		#site.bg(@c-hex-b);
+	}
+	
+	&:focus {
+		
+	}
+	
+	&:active {
+		
+	}
+	
+	&:visited {
+		
+	}
+	
+	
+	&.inline {
+		display:inline-block;
+	}
+	
+	&.as-block {
+		display:block;
+		width:100%;
+	}
+	
+	&.as-link {
+		display:inline-block;
+		outline:none;
+		padding:initial;
+		#site.underline(initial);
+		#site.color(inherit);
+		#site.bg(transparent);
+		
+		&:hover {
+			#site.underline();
+			#site.color(inherit);
+			#site.bg(transparent);
+		}
+	}
+	
+	
+	
+	&.mod {
+		@import ".mod.less";
+	}
+	
+	@media @media-size-xs {
+		@import "xs.less";
+	}
+	@media @media-size-sm {
+		@import "sm.less";
+	}
+	@media @media-size-md {
+		@import "md.less";
+	}
+	@media @media-size-lg {
+		@import "lg.less";
+	}
+	@media @media-size-portrait {
+		@import "portrait.less";
+	}
+	@media @media-size-landscape {
+		@import "landscape.less";
+	}
+	@media @media-size-retina {
+		@import "retina.less";
+	}
+	@media @media-size-print {
+		@import "print.less";
+	}
+}
