@@ -15,6 +15,7 @@
     "mysql": "^2.9.0",
     "ncp": "*",
     "node-telegram-bot-api": "^0.21.1",
+    "nodemailer": "^2.4.2",
     "request": "*",
     "vksdk": "^5.2.0",
     "ws": "*"
