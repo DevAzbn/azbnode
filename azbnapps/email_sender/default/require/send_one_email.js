@@ -12,7 +12,15 @@ function _(azbn) {
 	azbn.mdl('mysql').query(
 		"SELECT `" + azbn.mdl('cfg').dbt.msg + "`.*, `" + azbn.mdl('cfg').dbt.recipient + "`.email AS email, `" + azbn.mdl('cfg').dbt.tosend + "`.* " +
 			"FROM `" + azbn.mdl('cfg').dbt.msg + "`, `" + azbn.mdl('cfg').dbt.recipient + "`, `" + azbn.mdl('cfg').dbt.tosend + "`" +
-			"WHERE (`" + azbn.mdl('cfg').dbt.tosend + "`.status < 1 AND `" + azbn.mdl('cfg').dbt.tosend + "`.recipient = `" + azbn.mdl('cfg').dbt.recipient + "`.id AND `" + azbn.mdl('cfg').dbt.tosend + "`.msg = `" + azbn.mdl('cfg').dbt.msg + "`.id) " +
+			"WHERE ( " +
+				"`" + azbn.mdl('cfg').dbt.tosend + "`.status < 1 " +
+				" AND " +
+				"`" + azbn.mdl('cfg').dbt.tosend + "`.recipient = `" + azbn.mdl('cfg').dbt.recipient + "`.id " +
+				" AND " +
+				"`" + azbn.mdl('cfg').dbt.tosend + "`.msg = `" + azbn.mdl('cfg').dbt.msg + "`.id " +
+				" AND " +
+				"`" + azbn.mdl('cfg').dbt.msg + "`.status = 1 " +
+			") " +
 			"ORDER BY RAND() LIMIT " + azbn.mdl('cfg').iteration_count, function(err, rows, fields) {
 		if (err) {
 			
@@ -35,7 +43,7 @@ function _(azbn) {
 				azbn.mdl('codestream')
 					.add(function(next){
 						
-						var html_file = azbn.mdl('cfg').html_path + item.msg + '.html';
+						var html_file = item.tpl;//azbn.mdl('cfg').html_path + item.msg + '.html';
 						
 						azbn.mdl('fs').readFile(html_file, azbn.mdl('cfg').charset, function(err, text) {
 							
@@ -58,7 +66,7 @@ function _(azbn) {
 										var transporter = azbn.mdl('nodemailer').createTransport(acc.transport);
 										
 										var mailOptions = {
-											from: item.from + ' <' + acc.login + '>', // sender address
+											from: item.name + ' <' + acc.login + '>', // sender address
 											to: item.email, // list of receivers
 											subject: item.subject + ' #' + item.id, // Subject line
 											//text: item.text, // plaintext body
